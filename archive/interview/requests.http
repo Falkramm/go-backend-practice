@@ -1,0 +1,23 @@
+### Catalog — create category
+POST http://127.0.0.1:8082/categories
+Content-Type: application/json
+
+{"name":"Books"}
+
+### Catalog — products
+GET http://127.0.0.1:8082/products?limit=20&offset=0&sort=id
+
+### Catalog — UPSERT
+PUT http://127.0.0.1:8082/products/by-sku/GO-BOOK
+Content-Type: application/json
+
+{"category_id":1,"name":"Go","price_cents":1200,"stock":5,"description":null}
+
+### Orders — create draft
+POST http://127.0.0.1:8083/orders
+Content-Type: application/json
+
+{"items":[{"product_id":1,"qty":2}]}
+
+### Orders — confirm
+POST http://127.0.0.1:8083/orders/1/confirm
